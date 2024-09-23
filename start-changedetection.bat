@@ -12,7 +12,7 @@ timeout 3
 FOR /f "delims=" %%a in ('docker container inspect -f '{{.State.Status}}' changedetection') do @set changedetection_status=%%a
 IF %changedetection_status%=='running' (
     timeout 3
-    start brave --incognito "http://localhost:8080"
+    start brave --incognito "http://localhost:5000"
 ) ELSE (
     GOTO :browser_loop
 )
